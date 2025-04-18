@@ -1,6 +1,6 @@
 # E-commerce Web Application
 
-A modern e-commerce web application built with Spring Boot, featuring AI-powered chat interface for natural language interactions.
+A modern e-commerce AI AGENT-web application built with Spring Boot, featuring AI-powered chat interface for natural language interactions.
 
 ## Features
 
