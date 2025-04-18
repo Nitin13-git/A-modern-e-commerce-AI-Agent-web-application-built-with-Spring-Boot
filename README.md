@@ -50,7 +50,7 @@ A modern e-commerce AI AGENT-web application built with Spring Boot, featuring A
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/ecommerce-webapp.git
+   https://github.com/Nitin13-git/A-modern-e-commerce-AI-Agent-web-application-built-with-Spring-Boot.git
    cd ecommerce-webapp
    ```
 
