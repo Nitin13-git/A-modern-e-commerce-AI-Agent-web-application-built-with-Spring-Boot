@@ -1,6 +1,6 @@
 # E-commerce Web Application
 
-A modern e-commerce AI AGENT-web application built with Spring Boot, featuring AI-powered chat interface for natural language interactions.
+A modern e-commerce web application built with Spring Boot, featuring AI-powered chat interface for natural language interactions.
 
 ## Features
 
@@ -8,69 +8,56 @@ A modern e-commerce AI AGENT-web application built with Spring Boot, featuring A
   - Browse and search products
   - View product details
   - Create, update, and delete products
-  - Product categorization and filtering
 
 - **Order Management**
   - Create and track orders
-  - Order history and status updates
-  - Secure payment processing
+  - Order history
 
 - **AI-Powered Chat Interface**
   - Natural language processing for product queries
-  - Intelligent product recommendations
-  - Conversational order placement
-  - Support for multiple AI providers (OpenAI, Anthropic)
+  - Support for Anthropic Claude AI
 
 ## Tech Stack
 
 - **Backend**
-  - Spring Boot 3.x
-  - Spring AI (for AI integration)
+  - Spring Boot 3.2.3
+  - Spring AI 1.0.0-M6
   - Spring Data JPA
-  - MySQL Database
+  - H2 Database
   - Maven (Dependency Management)
 
 - **AI Integration**
-  - OpenAI GPT-4
-  - Anthropic Claude
-  - Custom prompt engineering
+  - Anthropic Claude 3.5 Sonnet
   - Natural language processing
 
 ## Getting Started
 
 ### Prerequisites
 
-- Java 17 or higher
+- Java 21
 - Maven 3.8 or higher
-- MySQL 8.0 or higher
-- OpenAI API key or Anthropic API key
+- Anthropic API key
 
 ### Installation
 
-
 1. Clone the repository:
    ```bash
-   https://github.com/Nitin13-git/A-modern-e-commerce-AI-Agent-web-application-built-with-Spring-Boot.git
+   git clone https://github.com/yourusername/ecommerce-webapp.git
    cd ecommerce-webapp
    ```
 
-2. Configure the database:
-   - Create a MySQL database named `ecommerce`
-   - Update `application.properties` with your database credentials
-
-3. Configure AI providers:
-   - Add your API keys to `application.properties`:
+2. Configure AI provider:
+   - Add your Anthropic API key to `application.properties`:
      ```properties
-     spring.ai.openai.api-key=your-openai-api-key
      spring.ai.anthropic.api-key=your-anthropic-api-key
      ```
 
-4. Build the application:
+3. Build the application:
    ```bash
    mvn clean install
    ```
 
-5. Run the application:
+4. Run the application:
    ```bash
    mvn spring-boot:run
    ```
@@ -84,20 +71,19 @@ A modern e-commerce AI AGENT-web application built with Spring Boot, featuring A
 - `POST /api/products` - Create new product
 - `PUT /api/products/{id}` - Update product
 - `DELETE /api/products/{id}` - Delete product
-- `GET /api/products/search` - Search products
 
 ### Order Endpoints
 
 - `GET /api/orders` - Get all orders
 - `GET /api/orders/{id}` - Get order by ID
 - `POST /api/orders` - Create new order
-- `PUT /api/orders/{id}` - Update order
-- `DELETE /api/orders/{id}` - Delete order
 
 ### AI Chat Endpoints
 
-- `POST /api/chat` - Process user query
-- `GET /api/chat/history` - Get chat history
+- `GET /api/chat?query=your_message` - Process user query (GET)
+- `POST /api/chat` - Process user query (POST)
+- `GET /api/chat/stream?query=your_message` - Stream chat response (GET)
+- `POST /api/chat/stream` - Stream chat response (POST)
 
 ## AI Integration
 
@@ -107,7 +93,6 @@ The application uses Spring AI to provide natural language processing capabiliti
 2. Search and recommend products
 3. Help with order placement
 4. Provide product information
-5. Handle customer support queries
 
 ### Prompt Engineering
 
@@ -130,37 +115,18 @@ public class EcommerceRouterPrompt {
 }
 ```
 
-## Security
-
-- JWT-based authentication
-- Role-based access control
-- Secure API endpoints
-- Input validation and sanitization
-- API key encryption
-
-## Error Handling
-
-The application implements comprehensive error handling:
-
-- Custom exception classes
-- Global exception handler
-- Meaningful error messages
-- Logging and monitoring
-
 ## Testing
 
-- Unit tests for services and controllers
-- Integration tests for API endpoints
-- AI response validation
-- Database transaction tests
+The application can be tested using Postman or any HTTP client. Here are some example queries:
 
-## Contributing
+1. Product Queries:
+   - "What products do you have?"
+   - "Show me all electronics products"
+   - "Tell me about product with ID abc123"
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+2. Order Queries:
+   - "I want to order 2 units of product abc123"
+   - "Show me my order history"
 
 ## License
 
@@ -169,7 +135,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 - Spring Framework
-- OpenAI
 - Anthropic
-- MySQL
-- Maven 
+- H2 Database 
